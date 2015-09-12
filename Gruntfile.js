@@ -1,5 +1,3 @@
-
-
 module.exports = function(grunt) {
 
   var jsFiles = [
@@ -62,14 +60,14 @@ module.exports = function(grunt) {
     compress: {
       main: {
         options: {
-          archive: 'simple-bootstrap.zip'
+          archive: 'blog-clifton-io.zip'
         },
         files: [
           {
             src: ['**'],
             dest: '/',
             filter: function(path) {
-              if (/^simple-bootstrap.zip$/.test(path) ||
+              if (/^blog-clifton-io.zip$/.test(path) ||
                 /^bower_components\b\/?/.test(path) ||
                 /^node_modules\b\/?/.test(path)
                 ) {
