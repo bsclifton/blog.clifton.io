@@ -1,19 +1,14 @@
-		
+
     	   </div>
         </div>
-            
-        <footer>
-            <div id="inner-footer" class="vertical-nav">
-                <div class="container">
-                    <div class="row">
-                        <?php dynamic_sidebar('footer1'); ?>
 
-                        <div class="col-xs-12 text-center">
-                            <p><?php _e('Copyright 2015 <a href="https://github.com/nicolas-van">@nicolas-van</a>', 'simple-bootstrap') ?></p>
-                            <p><?php _e("Powered by WordPress", "default"); ?></p>
-                        </div>
-                    </div>
+        <footer>
+            <div id="footer-bottom">
+              <div class="container">
+                <div class="row" id="footer-bottom-content">
+                  &copy; Copyright 2015, Brian Clifton. All rights reserved.
                 </div>
+              </div>
             </div>
         </footer>
 

@@ -1,7 +1,7 @@
 {
-  "name": "simple-bootstrap",
-  "version": "0.0.0",
-  "description": "Basic Wordpress theme using Boostrap. Built to be very clean.",
+  "name": "blog-clifton-io",
+  "version": "1.0.0",
+  "description": "WordPress theme customizations for https://blog.clifton.io/",
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "~0.4.5",

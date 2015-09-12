@@ -1,3 +1,8 @@
+This is a fork of the Simple Bootstrap theme with some customizations used specifically for https://blog.clifton.io.
+
+Please find the original and unmodified README text below:
+
+#############################
 
 Simple Bootstrap is a basic Wordpress theme using Boostrap.
 
