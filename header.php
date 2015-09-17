@@ -39,7 +39,6 @@
             ?>
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="https://blog.clifton.io">blog</a></li>
-              <li><a href="https://bugs.clifton.io">bugs</a></li>
             </ul>
           </div>
           <?php endif ?>
