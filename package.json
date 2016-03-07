@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "description": "WordPress theme customizations for https://blog.clifton.io/",
   "main": "Gruntfile.js",
-  "dependencies": {
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clifton-io/blog.clifton.io.git"
+  },
+  "author": "Brian Clifton",
+  "license": "MIT",
+  "homepage": "https://github.com/clifton-io/blog.clifton.io#readme",
+  "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-cssmin": "~0.10.0",
     "grunt-contrib-less": "~0.11.4",
@@ -11,18 +21,5 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-copy": "~0.8.0",
     "grunt-contrib-compress": "~0.13.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/nicolas-van/wordpress-simple-boostrap.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nicolas-van/wordpress-simple-boostrap/issues"
   }
 }
