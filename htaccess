@@ -1,0 +1,33 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# remove /index.php/ from permalinks
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+# force https
+RewriteCond %{HTTP_HOST} ^blog.clifton\.io [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://blog.clifton.io/$1 [R,L]
+</IfModule>
+
+Header always set Access-Control-Allow-Origin "https://clifton.io"
+
+# protect .htaccess
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+# protect wp-config.php
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
+# disable directory browsing
+Options All -Indexes

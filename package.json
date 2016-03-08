@@ -12,6 +12,9 @@
   },
   "author": "Brian Clifton",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clifton-io/blog.clifton.io/issues"
+  },
   "homepage": "https://github.com/clifton-io/blog.clifton.io#readme",
   "devDependencies": {
     "grunt": "~0.4.5",
