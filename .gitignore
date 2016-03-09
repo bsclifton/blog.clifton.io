@@ -21,8 +21,6 @@ $RECYCLE.BIN/
 codekit-config.json
 bower_components
 node_modules
-style.css
-style.min.css
-fonts
-blog-clifton-io.zip
-js
+dist
+secret.json
+styles/style.css

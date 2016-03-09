@@ -5,11 +5,7 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-
   <?php wp_head(); ?>
-
-  <link rel="stylesheet" href="https://clifton.io/vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://clifton.io/styles/app.css">
 </head>
 
 <body <?php body_class(); ?>>

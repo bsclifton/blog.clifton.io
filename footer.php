@@ -6,7 +6,7 @@
             <div id="footer-bottom">
               <div class="container">
                 <div class="row" id="footer-bottom-content">
-                  &copy; Copyright 2015, Brian Clifton. All rights reserved.
+                  &copy; Copyright 2016, Brian Clifton. All rights reserved.
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 <?php
 
 // Declaration of theme supported features
-function simple_boostrap_theme_support() {
+function simple_bootstrap_theme_support() {
     add_theme_support( 'html5', array(
         'search-form',
         'comment-form',
@@ -21,14 +21,14 @@ function simple_boostrap_theme_support() {
             'main_nav' => __('Main Menu', 'simple-bootstrap'),   // main nav in header
         )
     );
-    add_image_size( 'simple_boostrap_featured', 1140, 1140 * (9 / 21), true);
+    add_image_size( 'simple_bootstrap_featured', 1140, 1140 * (9 / 21), true);
     load_theme_textdomain( 'simple-bootstrap', get_template_directory() . '/languages' );
 }
-add_action('after_setup_theme','simple_boostrap_theme_support');
+add_action('after_setup_theme','simple_bootstrap_theme_support');
 
 function simple_bootstrap_theme_scripts() {
     // For child themes
-    wp_register_style( 'wpbs-style', get_stylesheet_directory_uri() . '/style.css', array(), null, 'all' );
+    wp_register_style( 'wpbs-style', get_stylesheet_directory_uri() . '/style.min.css', array(), null, 'all' );
     wp_enqueue_style( 'wpbs-style' );
     wp_register_script( 'bower-libs',
         get_template_directory_uri() . '/app.min.js',
@@ -54,7 +54,7 @@ if ( ! isset( $content_width ) )
     $content_width = 750;
 
 // Sidebar and Footer declaration
-function simple_boostrap_register_sidebars() {
+function simple_bootstrap_register_sidebars() {
     register_sidebar(array(
         'id' => 'sidebar-right',
         'name' => __('Right Sidebar', 'simple-bootstrap'),
@@ -84,7 +84,7 @@ function simple_boostrap_register_sidebars() {
     ));
 
 }
-add_action( 'widgets_init', 'simple_boostrap_register_sidebars' );
+add_action( 'widgets_init', 'simple_bootstrap_register_sidebars' );
 
 // Menu output mods
 class simple_bootstrap_Bootstrap_walker extends Walker_Nav_Menu {
@@ -207,7 +207,7 @@ function simple_bootstrap_display_post_meta() {
 <?php
 }
 
-function simple_boostrap_page_navi() {
+function simple_bootstrap_page_navi() {
     global $wp_query;
 
     ?>
@@ -224,7 +224,7 @@ function simple_boostrap_page_navi() {
     <?php
 }
 
-function simple_boostrap_display_post($multiple_on_page) { ?>
+function simple_bootstrap_display_post($multiple_on_page) { ?>
 
     <article id="post-<?php the_ID(); ?>" <?php post_class("block"); ?> role="article">
 
@@ -243,9 +243,9 @@ function simple_boostrap_display_post($multiple_on_page) { ?>
             <?php if (has_post_thumbnail()) { ?>
             <div class="featured-image">
                 <?php if ($multiple_on_page) : ?>
-                <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('simple_boostrap_featured'); ?></a>
+                <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('simple_bootstrap_featured'); ?></a>
                 <?php else: ?>
-                <?php the_post_thumbnail('simple_boostrap_featured'); ?>
+                <?php the_post_thumbnail('simple_bootstrap_featured'); ?>
                 <?php endif ?>
             </div>
             <?php } ?>
@@ -273,7 +273,7 @@ function simple_boostrap_display_post($multiple_on_page) { ?>
 
 <?php }
 
-function simple_boostrap_main_classes() {
+function simple_bootstrap_main_classes() {
     $nbr_sidebars = (is_active_sidebar('sidebar-left') ? 1 : 0) + (is_active_sidebar('sidebar-right') ? 1 : 0);
     $classes = "";
     if ($nbr_sidebars == 0) {
@@ -289,12 +289,12 @@ function simple_boostrap_main_classes() {
     echo $classes;
 }
 
-function simple_boostrap_sidebar_left_classes() {
+function simple_bootstrap_sidebar_left_classes() {
     $nbr_sidebars = (is_active_sidebar('sidebar-left') ? 1 : 0) + (is_active_sidebar('sidebar-right') ? 1 : 0);
     echo 'col-md-'.($nbr_sidebars == 2 ? 3 : 4).' col-md-pull-'.($nbr_sidebars == 2 ? 6 : 8);
 }
 
-function simple_boostrap_sidebar_right_classes() {
+function simple_bootstrap_sidebar_right_classes() {
     $nbr_sidebars = (is_active_sidebar('sidebar-left') ? 1 : 0) + (is_active_sidebar('sidebar-right') ? 1 : 0);
     echo 'col-md-'.($nbr_sidebars == 2 ? 3 : 4);
 }
