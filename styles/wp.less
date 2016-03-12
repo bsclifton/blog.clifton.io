@@ -19,9 +19,8 @@
 
 .block {
     background-color: @block-bg;
-    border-radius: @block-border-radius;
     padding: @block-padding @block-padding (@block-padding - @padding-base-vertical) @block-padding;
-    border: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
     margin-bottom: 30px;
     &.block-title {
         padding-top: (@block-padding - @padding-base-vertical);
@@ -306,7 +305,6 @@ body {
 .article-header {
     padding-bottom: ((@line-height-computed / 2) - 1);
     margin-bottom: @line-height-computed;
-    border-bottom: 1px solid @page-header-border-color;
     .has-post-thumbnail & {
         border-bottom: none;
     }

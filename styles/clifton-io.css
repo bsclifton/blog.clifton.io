@@ -63,3 +63,18 @@ footer h4 { color: #fff; text-transform: capitalize; padding-bottom: 5px; border
 #blog-entries p a {
   color: #ccc;
 }
+
+/* experimental */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
+}
+h2.h1 {
+  font-size: 30px;
+  margin-top: 5px;
+}
+h4.widgettitle {
+  font-weight: bold;
+}
+ul.meta a.date {
+  font-weight: bold;
+}
