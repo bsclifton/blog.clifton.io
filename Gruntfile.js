@@ -7,14 +7,14 @@ module.exports = function(grunt) {
           paths: ["."]
         },
         files: {
-          "styles/style.css": "styles/style.less",
+          "dist/style.css": "styles/style.less",
         },
       }
     },
     cssmin: {
       dist: {
         files: {
-          'dist/style.min.css': ["styles/style.css", "styles/clifton-io.css"],
+          'dist/style.min.css': ["dist/style.css", "styles/clifton-io.css"],
         }
       }
     },
