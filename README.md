@@ -19,16 +19,42 @@ npm install && bower install
 grunt
 ```
 
-### Installing
+### Deploying
 
-After building the project, you can follow these steps (current as of WordPress 4.4.2):
+Create a secret.json file with the hosting info:
+```js
+{
+  "production": {
+    "host": "put-ssh-host-here",
+    "username": "put-username-here",
+    "password": "put-password-here",
+    "port": "22"
+  }
+}
+```
+
+Next, edit the deploy_path in the Gruntfile.js to have the correct location for the WordPress themes directory:
+```js
+{
+  environments: {
+    options: {
+      deploy_path: '/home/<%= secret.production.username %>/blog.clifton.io/wp-content/themes'
+    }
+  }
+}
+
+```
+
+Then build and deploy with the following command:
+``` sh
+grunt deploy
+```
+
+Once the theme is deployed, you can activate it like so:
 
 1. Log into the WordPress [Administration Panel](https://codex.wordpress.org/Administration_Panels) for your site.
 2. Select the [Appearance](https://codex.wordpress.org/Administration_Panels#Appearance_-_Change_the_Look_of_your_Blog) panel, then [Themes](https://codex.wordpress.org/Administration_Panels#Themes).
-3. Once you are on the themes page, click on the `Add New` button at the top.
-4. Click on the `Upload Theme` button at the top (next to the `Add New` header).
-5. Choose the zip file that you built with grunt (`blog-clifton-io.zip`). Select the file and click `Install Now`.
-6. Once your theme is installed, you will see a success message along with the link to activate and preview the theme.
+3. Once you are on the themes page, click on the `Activate` button for the blog-clifton-io theme.
 
 
 ## License
