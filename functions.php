@@ -177,14 +177,10 @@ function simple_bootstrap_display_post_meta() {
 ?>
   <ul class="meta text-muted list-inline">
     <li>
-      <a class="date" href="<?php the_permalink() ?>">
-        <?php the_date(); ?>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </li>
-    <li>
-      <a class="author" href="<?php echo get_author_posts_url(get_the_author_meta('ID'));?>">
+      by <a class="author" href="<?php echo get_author_posts_url(get_the_author_meta('ID'));?>">
         <?php the_author(); ?>
+      </a> - <a class="date" href="<?php the_permalink() ?>">
+        <?php the_date(); ?>
       </a>
     </li>
     <?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>

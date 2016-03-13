@@ -64,7 +64,7 @@ footer h4 { color: #fff; text-transform: capitalize; padding-bottom: 5px; border
   color: #ccc;
 }
 
-/* experimental */
+/* formatting the titles */
 h1, h2, h3, h4, h5, h6 {
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
 }
@@ -77,4 +77,17 @@ h4.widgettitle {
 }
 ul.meta a.date {
   font-weight: bold;
+}
+
+/* paragraph formatting */
+p {
+  margin: 0 0 15px 0;
+}
+
+/* comments */
+.commentlist .comment .comment-body .comment-author {
+  color: #000;
+}
+.commentlist .comment .comment-body .comment-author a {
+  color: #337ab7 !important;
 }
