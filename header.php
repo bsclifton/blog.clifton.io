@@ -9,13 +9,10 @@
 </head>
 
 <body <?php body_class(); ?>>
-
   <div id="content-wrapper">
-
     <header>
       <nav class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
-
           <div class="navbar-header">
             <?php if (has_nav_menu("main_nav")): ?>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-responsive-collapse">
@@ -27,14 +24,9 @@
             <?php endif ?>
             <a class="navbar-brand" title="<?php bloginfo('description'); ?>" href="https://clifton.io/"><?php bloginfo('name'); ?></a>
           </div>
-
           <?php if (has_nav_menu("main_nav")): ?>
           <div id="navbar-responsive-collapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <?php
-                simple_bootstrap_display_main_menu();
-              ?>
-            </ul>
+            <?php simple_bootstrap_display_main_menu(); ?>
           </div>
           <?php endif ?>
 

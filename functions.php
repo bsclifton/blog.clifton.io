@@ -162,7 +162,7 @@ function simple_bootstrap_display_main_menu() {
     array(
       'theme_location' => 'main_nav', /* where in the theme it's assigned */
       'menu' => 'main_nav', /* menu name */
-      'menu_class' => 'nav navbar-nav',
+      'menu_class' => 'nav navbar-nav navbar-right',
       'container' => false, /* container class */
       'depth' => 2,
       'walker' => new simple_bootstrap_Bootstrap_walker(),
