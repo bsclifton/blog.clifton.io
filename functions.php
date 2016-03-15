@@ -170,9 +170,7 @@ function simple_bootstrap_display_main_menu() {
   );
 }
 
-/*
-  A function used in multiple places to generate the metadata of a post.
-*/
+// A function used in multiple places to generate the metadata of a post.
 function simple_bootstrap_display_post_meta() {
 ?>
   <ul class="meta text-muted list-inline">
@@ -198,7 +196,6 @@ function simple_bootstrap_display_post_meta() {
 
 function simple_bootstrap_page_navi() {
   global $wp_query;
-
   ?>
 
   <?php if (get_next_posts_link() || get_previous_posts_link()) { ?>
@@ -281,3 +278,13 @@ function simple_bootstrap_sidebar_right_classes() {
   $nbr_sidebars = (is_active_sidebar('sidebar-left') ? 1 : 0) + (is_active_sidebar('sidebar-right') ? 1 : 0);
   echo 'col-md-'.($nbr_sidebars == 2 ? 3 : 4);
 }
+
+// Hide password protected posts
+// http://www.wpbeginner.com/wp-tutorials/how-to-hide-password-protected-posts-from-wordpress-loop/
+function wpb_password_post_filter( $where = '' ) {
+    if (!is_single() && !is_admin()) {
+        $where .= " AND post_password = ''";
+    }
+    return $where;
+}
+add_filter( 'posts_where', 'wpb_password_post_filter' );

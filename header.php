@@ -30,11 +30,10 @@
 
           <?php if (has_nav_menu("main_nav")): ?>
           <div id="navbar-responsive-collapse" class="collapse navbar-collapse">
-            <?php
-                simple_bootstrap_display_main_menu();
-            ?>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="https://blog.clifton.io">blog</a></li>
+              <?php
+                simple_bootstrap_display_main_menu();
+              ?>
             </ul>
           </div>
           <?php endif ?>
