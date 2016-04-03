@@ -1,6 +1,6 @@
 {
   "name": "blog-clifton-io",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "WordPress theme customizations for https://blog.clifton.io/",
   "main": "Gruntfile.js",
   "scripts": {

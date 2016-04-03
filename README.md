@@ -27,7 +27,6 @@ Create a secret.json file with the hosting info:
   "production": {
     "host": "put-ssh-host-here",
     "username": "put-username-here",
-    "password": "put-password-here",
     "port": "22"
   }
 }

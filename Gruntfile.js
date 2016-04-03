@@ -7,14 +7,17 @@ module.exports = function(grunt) {
           paths: ["."]
         },
         files: {
-          "dist/style.css": "styles/style.less",
+          'dist/style.css': 'styles/style.less'
         },
       }
     },
     cssmin: {
       dist: {
         files: {
-          'dist/style.min.css': ["dist/style.css", "styles/clifton-io.css"],
+          'dist/style.min.css': [
+            'dist/style.css',
+            'styles/clifton-io.css'
+          ],
         }
       }
     },
@@ -22,9 +25,9 @@ module.exports = function(grunt) {
       target: {
         files: {
           'dist/app.min.js': [
-            "bower_components/respond/dest/respond.src.js",
-            "bower_components/html5shiv/dist/html5shiv.js",
-            "bower_components/bootstrap/dist/js/bootstrap.js"
+            'bower_components/respond/dest/respond.src.js',
+            'bower_components/html5shiv/dist/html5shiv.js',
+            'bower_components/bootstrap/dist/js/bootstrap.js'
           ]
         }
       }
@@ -33,6 +36,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           { expand: true, flatten: true, src: ['bower_components/bootstrap/dist/fonts/*'], dest: 'dist/fonts/' },
+          { expand: true, flatten: true, src: ['bower_components/font-awesome/fonts/*'], dest: 'dist/fonts/' },
           { expand: true, flatten: true, src: ['languages/*'], dest: 'dist/languages/' },
           { expand: true, src: ['*.php'], dest: 'dist/' },
           { expand: true, src: ['screenshot.jpg'], dest: 'dist/' }
@@ -43,15 +47,15 @@ module.exports = function(grunt) {
     environments: {
       options: {
         local_path: 'dist',
-        current_symlink: '<%= pkg.name %>',
-        deploy_path: '/home/<%= secret.production.username %>/blog.clifton.io/wp-content/themes',
-        release_root: '<%= pkg.name %>-releases'
+        current_symlink: 'blog.clifton.io-theme',
+        deploy_path: '/srv/',
+        release_root: 'blog.clifton.io-theme-releases'
       },
       production: {
         options: {
           host: '<%= secret.production.host %>',
           username: '<%= secret.production.username %>',
-          password: '<%= secret.production.password %>',
+          privateKey: require('fs').readFileSync('C:/cygwin64/home/Brian/.ssh/id_rsa'),
           port: '<%= secret.production.port %>',
           releases_to_keep: '10'
         }
