@@ -143,14 +143,6 @@ div#blog-entries p.failure {
   margin: 10px;
 }
 
-/* blog comments */
-.commentlist .comment .comment-body .comment-author {
-  color: #000;
-}
-.commentlist .comment .comment-body .comment-author a {
-  color: #337ab7 !important;
-}
-
 /* /learn/ page */
 table.table {
   font-size: 11px;
