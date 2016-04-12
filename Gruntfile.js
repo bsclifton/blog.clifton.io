@@ -15,8 +15,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'dist/style.min.css': [
-            'dist/style.css',
-            'styles/clifton-io.css'
+            'dist/style.css'
           ],
         }
       }
@@ -27,7 +26,8 @@ module.exports = function(grunt) {
           'dist/app.min.js': [
             'bower_components/respond/dest/respond.src.js',
             'bower_components/html5shiv/dist/html5shiv.js',
-            'bower_components/bootstrap/dist/js/bootstrap.js'
+            'bower_components/bootstrap/dist/js/bootstrap.js',
+            'node_modules/clifton-io-website/js/app.js'
           ]
         }
       }
