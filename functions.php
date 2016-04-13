@@ -2,7 +2,7 @@
 
 // Declaration of theme supported features
 function simple_bootstrap_theme_support() {
-  add_theme_support( 'html5', array(
+  add_theme_support('html5', array(
     'search-form',
     'comment-form',
     'comment-list',
@@ -15,7 +15,7 @@ function simple_bootstrap_theme_support() {
   add_theme_support('custom-background', array(
     'default-color' => '#595959',
   ));
-  add_theme_support( 'title-tag' );
+  add_theme_support('title-tag');
   register_nav_menus(                      // wp3+ menus
     array(
       'main_nav' => __('Main Menu', 'simple-bootstrap'),   // main nav in header
@@ -28,29 +28,22 @@ add_action('after_setup_theme','simple_bootstrap_theme_support');
 
 function simple_bootstrap_theme_scripts() {
   // For child themes
-  wp_register_style( 'wpbs-style', get_stylesheet_directory_uri() . '/style.min.css', array(), null, 'all' );
-  wp_enqueue_style( 'wpbs-style' );
-  wp_register_script( 'bower-libs',
-    get_template_directory_uri() . '/app.min.js',
+  wp_register_style('wpbs-style', get_stylesheet_directory_uri().'/style.min.css', array(), null, 'all');
+  wp_enqueue_style('wpbs-style');
+  wp_register_script('bower-libs',
+    get_template_directory_uri().'/app.min.js',
     array('jquery'),
-    null );
+    null);
   wp_enqueue_script('bower-libs');
 
-  if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-    wp_enqueue_script( 'comment-reply' );
+  if (is_singular() && comments_open() && get_option('thread_comments')) {
+    wp_enqueue_script('comment-reply');
   }
 }
-add_action( 'wp_enqueue_scripts', 'simple_bootstrap_theme_scripts' );
-
-function simple_bootstrap_load_fonts() {
-  wp_register_style('simple_bootstrap_googleFonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
-  wp_enqueue_style('simple_bootstrap_googleFonts');
-}
-
-add_action('wp_print_styles', 'simple_bootstrap_load_fonts');
+add_action('wp_enqueue_scripts', 'simple_bootstrap_theme_scripts');
 
 // Set content width
-if ( ! isset( $content_width ) )
+if (!isset($content_width))
   $content_width = 750;
 
 // Sidebar and Footer declaration
@@ -83,77 +76,80 @@ function simple_bootstrap_register_sidebars() {
     'after_title' => '</h4>',
   ));
 }
-add_action( 'widgets_init', 'simple_bootstrap_register_sidebars' );
+add_action('widgets_init', 'simple_bootstrap_register_sidebars');
 
 // Menu output mods
 class simple_bootstrap_Bootstrap_walker extends Walker_Nav_Menu {
-    function start_el(&$output, $object, $depth = 0, $args = Array(), $current_object_id = 0) {
-      global $wp_query;
-      $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+  function start_el(&$output, $object, $depth = 0, $args = Array(), $current_object_id = 0) {
+    global $wp_query;
+    $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
-      $dropdown = $args->has_children && $depth == 0;
+    $dropdown = $args->has_children && $depth == 0;
 
-      $class_names = $value = '';
+    $class_names = $value = '';
 
-      // If the item has children, add the dropdown class for bootstrap
-      if ( $dropdown ) {
-        $class_names = "dropdown ";
-      }
-
-      $classes = empty( $object->classes ) ? array() : (array) $object->classes;
-
-      $class_names .= join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $object ) );
-      $class_names = ' class="'. esc_attr( $class_names ) . '"';
-
-      $output .= $indent . '<li id="menu-item-'. $object->ID . '"' . $value . $class_names .'>';
-
-      if ( $dropdown ) {
-        $attributes = ' href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"';
-      } else {
-        $attributes  = ! empty( $object->attr_title ) ? ' title="'  . esc_attr( $object->attr_title ) .'"' : '';
-        $attributes .= ! empty( $object->target )     ? ' target="' . esc_attr( $object->target     ) .'"' : '';
-        $attributes .= ! empty( $object->xfn )        ? ' rel="'    . esc_attr( $object->xfn        ) .'"' : '';
-        $attributes .= ! empty( $object->url )        ? ' href="'   . esc_attr( $object->url        ) .'"' : '';
-      }
-
-      $item_output = $args->before;
-      $item_output .= '<a'. $attributes .'>';
-      $item_output .= $args->link_before .apply_filters( 'the_title', $object->title, $object->ID );
-      $item_output .= $args->link_after;
-
-      // if the item has children add the caret just before closing the anchor tag
-      if ( $dropdown ) {
-        $item_output .= ' <b class="caret"></b>';
-      }
-      $item_output .= '</a>';
-
-      $item_output .= $args->after;
-
-      $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $object, $depth, $args );
-    } // end start_el function
-
-    function start_lvl(&$output, $depth = 0, $args = Array()) {
-      $indent = str_repeat("\t", $depth);
-      $output .= "\n$indent<ul class='dropdown-menu' role='menu'>\n";
+    // If the item has children, add the dropdown class for bootstrap
+    if ( $dropdown ) {
+      $class_names = "dropdown ";
     }
 
-    function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ){
-      $id_field = $this->db_fields['id'];
-      if ( is_object( $args[0] ) ) {
-        $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
-      }
-      return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    $classes = empty($object->classes) ? array() : (array) $object->classes;
+
+    $class_names .= join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $object));
+    $class_names = ' class="'. esc_attr($class_names) . '"';
+
+    //TODO: put active class on menu item if it matches
+    $output .= $indent . '<li id="menu-item-'. $object->ID . '"' . $value . $class_names .'>';
+
+    if ( $dropdown ) {
+      $attributes = ' href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"';
+    } else {
+      $attributes  = !empty($object->attr_title) ? ' title="'  . esc_attr($object->attr_title) .'"' : '';
+      $attributes .= !empty($object->target)     ? ' target="' . esc_attr($object->target    ) .'"' : '';
+      $attributes .= !empty($object->xfn)        ? ' rel="'    . esc_attr($object->xfn       ) .'"' : '';
+      $attributes .= !empty($object->url)        ? ' href="'   . esc_attr($object->url       ) .'"' : '';
+      $attributes .= ' data-event-category="navigation-menu"';
+      $attributes .= ' data-event-action="' . $object->title . '"';
     }
+
+    $item_output = $args->before;
+    $item_output .= '<a'. $attributes .'>';
+    $item_output .= $args->link_before .apply_filters('the_title', $object->title, $object->ID);
+    $item_output .= $args->link_after;
+
+    // if the item has children add the caret just before closing the anchor tag
+    if ( $dropdown ) {
+      $item_output .= ' <b class="caret"></b>';
+    }
+    $item_output .= '</a>';
+
+    $item_output .= $args->after;
+
+    $output .= apply_filters('walker_nav_menu_start_el', $item_output, $object, $depth, $args);
+  } // end start_el function
+
+  function start_lvl(&$output, $depth = 0, $args = Array()) {
+    $indent = str_repeat("\t", $depth);
+    $output .= "\n$indent<ul class='dropdown-menu' role='menu'>\n";
+  }
+
+  function display_element($element, &$children_elements, $max_depth, $depth=0, $args, &$output){
+    $id_field = $this->db_fields['id'];
+    if (is_object($args[0])) {
+      $args[0]->has_children = ! empty($children_elements[$element->$id_field]);
+    }
+    return parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+  }
 }
 
 // Add Twitter Bootstrap's standard 'active' class name to the active nav link item
 function simple_bootstrap_add_active_class($classes, $item) {
-  if( in_array('current-menu-item', $classes) ) {
+  if (in_array('current-menu-item', $classes)) {
     $classes[] = "active";
   }
   return $classes;
 }
-add_filter('nav_menu_css_class', 'simple_bootstrap_add_active_class', 10, 2 );
+add_filter('nav_menu_css_class', 'simple_bootstrap_add_active_class', 10, 2);
 
 // display the main menu bootstrap-style
 // this menu is limited to 2 levels (that's a bootstrap limitation)
@@ -181,7 +177,7 @@ function simple_bootstrap_display_post_meta() {
         <?php the_date(); ?>
       </a>
     </li>
-    <?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
+    <?php if (!post_password_required() && (comments_open() || get_comments_number())) : ?>
     <li>
       <?php
         $sp = '<span class="glyphicon glyphicon-comment"></span> ';
@@ -263,7 +259,7 @@ function simple_bootstrap_main_classes() {
   } else {
     $classes .= "col-md-6";
   }
-  if (is_active_sidebar( 'sidebar-left' )) {
+  if (is_active_sidebar('sidebar-left')) {
     $classes .= " col-md-push-".($nbr_sidebars == 2 ? 3 : 4);
   }
   echo $classes;
@@ -281,10 +277,10 @@ function simple_bootstrap_sidebar_right_classes() {
 
 // Hide password protected posts
 // http://www.wpbeginner.com/wp-tutorials/how-to-hide-password-protected-posts-from-wordpress-loop/
-function wpb_password_post_filter( $where = '' ) {
+function wpb_password_post_filter($where = '') {
     if (!is_single() && !is_admin()) {
         $where .= " AND post_password = ''";
     }
     return $where;
 }
-add_filter( 'posts_where', 'wpb_password_post_filter' );
+add_filter('posts_where', 'wpb_password_post_filter');

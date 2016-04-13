@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div id="content" class="row">
 
   <div id="main" class="<?php simple_bootstrap_main_classes(); ?>" role="main">
@@ -23,7 +22,7 @@
     <!-- this area shows up if there are no results -->
 
     <article id="post-not-found" class="block">
-        <p><?php _e("No items found.", "default"); ?></p>
+      <p><?php _e("No items found.", "default"); ?></p>
     </article>
 
     <?php endif; ?>

@@ -22,7 +22,9 @@
               <span class="icon-bar"></span>
             </button>
             <?php endif ?>
-            <a class="navbar-brand" title="<?php bloginfo('description'); ?>" href="https://clifton.io/"><?php bloginfo('name'); ?></a>
+            <a class="navbar-brand" title="<?php bloginfo('description'); ?>" href="https://clifton.io/" data-event-category="navigation-menu" data-event-action="home">
+              <?php bloginfo('name'); ?>
+            </a>
           </div>
           <?php if (has_nav_menu("main_nav")): ?>
           <div id="navbar-responsive-collapse" class="collapse navbar-collapse">

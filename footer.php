@@ -16,5 +16,8 @@
       </div>
     </footer>
   	<?php wp_footer(); // js scripts are inserted using this function ?>
+    <script type="text/javascript">
+      registerAnalytics('UA-27108697-5');
+    </script>
   </body>
 </html>
