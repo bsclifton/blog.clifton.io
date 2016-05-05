@@ -5,9 +5,9 @@
     <footer>
       <div class="container">
         <div class="social col-md-4">
-          <a class="fa fa-twitter" href="https://twitter.com/_brianclifton" title="Twitter" target="_blank"></a>
-          <a class="fa fa-github" href="https://github.com/bsclifton" title="GitHub" target="_blank"></a>
-          <a class="fa fa-linkedin-square" href="https://www.linkedin.com/in/bsclifton" title="LinkedIn" target="_blank"></a>
+          <a class="fa fa-twitter" href="https://twitter.com/_brianclifton" title="Twitter" rel="nofollow noopener" target="_blank"></a>
+          <a class="fa fa-github" href="https://github.com/bsclifton" title="GitHub" rel="nofollow noopener" target="_blank"></a>
+          <a class="fa fa-linkedin-square" href="https://www.linkedin.com/in/bsclifton" title="LinkedIn" rel="nofollow noopener" target="_blank"></a>
         </div>
 
         <div class="copyright col-md-8">

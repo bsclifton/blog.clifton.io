@@ -58,7 +58,8 @@ module.exports = function(grunt) {
           username: '<%= secret.production.username %>',
           privateKey: require('fs').readFileSync('C:/cygwin64/home/Brian/.ssh/id_rsa'),
           port: '<%= secret.production.port %>',
-          releases_to_keep: '10'
+          releases_to_keep: '10',
+          after_deploy: 'sudo service php5-fpm restart'
         }
       }
     }
